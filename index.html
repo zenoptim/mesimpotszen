@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Impôts Zen - Simulateur d'Impôt Fiable et Simple</title>
+    <meta name="description" content="Calculez votre impôt 2025 en 2 minutes. Fiable, simple et 100% zen. Testez vos scénarios (PER, frais réels) avec notre simulateur gratuit.">
+    <!-- Favicon (à remplacer par ton icône plus tard) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘‍♂️</text></svg>">
+    
+    <!-- Style CSS Minimaliste (Intégré pour la simplicité) -->
+    <style>
+        :root {
+            --primary-color: #1a3b5d; /* Bleu marine (Header app) */
+            --accent-color: #0d6efd; /* Bleu action (Boutons app) */
+            --bg-light: #f4f7f9; /* Fond app */
+            --text-dark: #212529;
+            --text-light: #6c757d;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+        }
+        .hero-content {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .hero .highlight {
+            color: var(--accent-color);
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #0b5ed7;
+        }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background-color: #fff;
+            border-radius: 40px;
+            border: 12px solid var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        /* Placeholder pour l'écran de l'app */
+        .app-screen-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f4f7f9 0%, #e9ecef 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+        .features h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 40px;
+        }
+        .feature-item {
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .feature-item p {
+            color: var(--text-light);
+        }
+
+        /* FOOTER & PRIVACY */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        #privacy-policy {
+            background-color: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            display: none; /* Caché par défaut */
+        }
+        #privacy-policy.visible {
+            display: block; /* Affiché si on clique */
+        }
+        #privacy-policy h2 {
+            color: white;
+            margin-top: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 60px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                margin-top: 20px;
+            }
+            .footer-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <!-- Remplacer par ton icône plus tard -->
+                <span class="logo-icon">🧘‍♂️</span> Mes Impôts Zen
+            </div>
+            <!-- <nav> (Pas besoin de navigation pour l'instant) -->
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Vos impôts, enfin <span class="highlight">Zen</span>.</h1>
+                <p>Le premier simulateur d'impôt fiable, simple et 100% confidentiel. Calculez votre impôt 2025 et optimisez vos scénarios (PER, frais réels) en 2 minutes.</p>
+                <!-- Lien vers le Play Store (à mettre à jour quand tu auras l'URL) -->
+                <a href="#" class="cta-button">
+                    Télécharger sur Android (Bientôt)
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="app-screen-placeholder">
+                        <!-- Ici, tu mettras une vraie capture d'écran plus tard -->
+                        <span style="font-size: 3rem;">📱</span>
+                        <p>Interface de l'App</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Pourquoi choisir Mes Impôts Zen ?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Fiabilité Maximale</h3>
+                    <p>Un moteur de calcul vérifié et mis à jour avec les dernières lois de finances 2025.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔒</span>
+                    <h3>100% Confidentiel</h3>
+                    <p>Vos données financières sont sensibles. Elles ne quittent jamais votre téléphone.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📈</span>
+                    <h3>Mode Expert</h3>
+                    <p>Gérez les cas complexes (PER, revenus fonciers) et comparez vos scénarios d'optimisation.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Mes Impôts Zen</strong><br>
+                    Développé par ZenOptim.<br>
+                    contact@mesimpotszen.fr
+                </div>
+                <div class="footer-links">
+                    <a href="#" onclick="togglePrivacy(event)">Politique de Confidentialité</a>
+                </div>
+            </div>
+
+            <!-- SECTION POLITIQUE DE CONFIDENTIALITÉ (OBLIGATOIRE POUR GOOGLE) -->
+            <div id="privacy-policy">
+                <h2>Politique de Confidentialité</h2>
+                <p><strong>Dernière mise à jour : 10 Novembre 2025</strong></p>
+                <p>L'application "Mes Impôts Zen" (ci-après "l'Application") est développée par ZenOptim. Nous accordons une importance capitale à la confidentialité de vos données.</p>
+                
+                <h3>1. Collecte de Données</h3>
+                <p><strong>Nous ne collectons aucune donnée personnelle.</strong> Toutes les informations financières que vous saisissez dans l'Application (revenus, charges, situation familiale) sont stockées exclusivement en local sur votre appareil. Elles ne sont jamais transmises à nos serveurs ni à des tiers.</p>
+
+                <h3>2. Permissions</h3>
+                <p>L'Application ne demande aucune permission sensible (pas d'accès aux contacts, à la localisation, ou aux fichiers en dehors de son propre espace de stockage sécurisé).</p>
+
+                <h3>3. Services Tiers</h3>
+                <p>L'Application utilise <strong>RevenueCat</strong> uniquement pour gérer les abonnements Premium. Ce service peut collecter des données techniques anonymisées liées aux transactions d'achat, conformément aux règles du Google Play Store.</p>
+
+                <h3>4. Contact</h3>
+                <p>Pour toute question concernant cette politique, vous pouvez nous contacter à : contact@mesimpotszen.fr</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function togglePrivacy(e) {
+            e.preventDefault();
+            const policy = document.getElementById('privacy-policy');
+            policy.classList.toggle('visible');
+            policy.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
