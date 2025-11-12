@@ -24,11 +24,12 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden; /* Empêche le scroll horizontal */
         }
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px; /* Ajout d'un padding horizontal de base */
         }
         /* HEADER */
         header {
@@ -55,10 +56,11 @@
             align-items: center;
             justify-content: space-between;
             padding: 80px 0;
+            gap: 40px; /* Ajout d'un écart */
         }
         .hero-content {
             flex: 1;
-            padding-right: 40px;
+            /* Retrait du padding-right, géré par le gap */
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -91,7 +93,7 @@
             background-color: #0b5ed7;
         }
 
-        /* NOUVEAUX STYLES POUR LA GRILLE D'AFFICHES */
+        /* STYLES CORRIGÉS POUR LA GRILLE D'AFFICHES (SANS ANGLES) */
         .hero-image-grid {
             flex: 1.2; /* Donne un peu plus de place aux images */
             display: flex;
@@ -104,14 +106,8 @@
             height: auto;
             border-radius: 12px;
             aspect-ratio: 1080 / 1920; /* Force le bon ratio */
-        }
-        .shadow {
-             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-             transform: rotate(-3deg) translateY(10px); /* Léger angle */
-        }
-        .shadow-sm {
-             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-             transform: rotate(2deg) translateY(-10px); /* Léger angle opposé */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre simple et propre */
+            /* Suppression des transforms rotate() */
         }
 
         /* FEATURES SECTION */
@@ -154,13 +150,14 @@
         footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 60px 0;
+            padding: 60px 20px; /* Ajout d'un padding */
             margin-top: 80px;
         }
         .footer-content {
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
+            flex-wrap: wrap; /* Ajout pour mobile */
         }
         .footer-links a {
             color: rgba(255,255,255,0.7);
@@ -187,7 +184,7 @@
         }
 
         /* RESPONSIVE (MIS À JOUR) */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) { /* Point de bascule large */
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -200,15 +197,25 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            /* AJOUT : S'assure que les images sont l'une en dessous de l'autre sur mobile */
             .hero-image-grid {
-                flex-direction: column;
+                flex-direction: row; /* Côte à côte sur tablette */
+                width: 100%;
+                gap: 15px;
+            }
+            .aso-image {
+                width: 45%; /* Plus petites */
+            }
+        }
+        
+        @media (max-width: 500px) { /* Vraiment mobile */
+             .hero-image-grid {
+                flex-direction: column; /* L'une sous l'autre */
                 width: 100%;
             }
             .aso-image {
-                width: 70%; /* Elles reprennent de la largeur sur mobile */
+                width: 70%; /* Reprend de la largeur */
+                margin-bottom: 20px;
             }
-            
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -242,10 +249,10 @@
                     Télécharger sur Android (Bientôt)
                 </a>
             </div>
-            <!-- SECTION HTML CORRIGÉE -->
+            <!-- SECTION HTML INCHANGÉE -->
             <div class="hero-image-grid">
-                <img src="affiche-accueil.png" alt="Affiche 1 - Mes Impôts Zen" class="aso-image shadow">
-                <img src="affiche-comparaison.png" alt="Affiche 2 - Comparaison PER" class="aso-image shadow-sm">
+                <img src="affiche-accueil.png" alt="Affiche 1 - Mes Impôts Zen" class="aso-image">
+                <img src="affiche-comparaison.png" alt="Affiche 2 - Comparaison PER" class="aso-image">
             </div>
         </section>
 
