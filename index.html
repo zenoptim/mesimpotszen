@@ -90,6 +90,30 @@
             transform: translateY(-2px);
             background-color: #0b5ed7;
         }
+
+        /* NOUVEAUX STYLES POUR LA GRILLE D'AFFICHES */
+        .hero-image-grid {
+            flex: 1.2; /* Donne un peu plus de place aux images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Espace entre les deux affiches */
+        }
+        .aso-image {
+            width: 48%; /* Chaque image prend presque la moitié */
+            height: auto;
+            border-radius: 12px;
+            aspect-ratio: 1080 / 1920; /* Force le bon ratio */
+        }
+        .shadow {
+             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+             transform: rotate(-3deg) translateY(10px); /* Léger angle */
+        }
+        .shadow-sm {
+             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+             transform: rotate(2deg) translateY(-10px); /* Léger angle opposé */
+        }
+
         /* FEATURES SECTION */
         .features {
             padding: 80px 0;
@@ -162,7 +186,7 @@
             margin-top: 0;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE (MIS À JOUR) */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
@@ -184,28 +208,17 @@
             .aso-image {
                 width: 70%; /* Elles reprennent de la largeur sur mobile */
             }
-        }
-        /* NOUVEAUX STYLES POUR LA GRILLE D'AFFICHES */
-        .hero-image-grid {
-            flex: 1.2; /* Donne un peu plus de place aux images */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px; /* Espace entre les deux affiches */
-        }
-        .aso-image {
-            width: 48%; /* Chaque image prend presque la moitié */
-            height: auto;
-            border-radius: 12px;
-            aspect-ratio: 1080 / 1920; /* Force le bon ratio */
-        }
-        .shadow {
-             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-             transform: rotate(-3deg) translateY(10px); /* Léger angle */
-        }
-        .shadow-sm {
-             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-             transform: rotate(2deg) translateY(-10px); /* Léger angle opposé */
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                margin-top: 20px;
+            }
+            .footer-links a {
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
@@ -229,6 +242,7 @@
                     Télécharger sur Android (Bientôt)
                 </a>
             </div>
+            <!-- SECTION HTML CORRIGÉE -->
             <div class="hero-image-grid">
                 <img src="affiche-accueil.png" alt="Affiche 1 - Mes Impôts Zen" class="aso-image shadow">
                 <img src="affiche-comparaison.png" alt="Affiche 2 - Comparaison PER" class="aso-image shadow-sm">
