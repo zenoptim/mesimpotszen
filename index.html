@@ -115,7 +115,6 @@
             border-radius: 12px;
             aspect-ratio: 1080 / 1920; /* Force le bon ratio */
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre simple et propre */
-            /* Suppression des transforms rotate() */
         }
 
         /* FEATURES SECTION */
@@ -132,13 +131,16 @@
             font-size: 2.5rem;
             margin-bottom: 60px;
         }
+        
+        /* --- CORRECTION CSS ICI --- */
         .feature-grid {
             display: grid;
-            /* MODIFIÉ : 4 colonnes sur grand écran, s'adapte en dessous */
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
+            /* Force 2 colonnes sur desktop/tablette large */
+            grid-template-columns: 1fr 1fr;
+            gap: 40px; /* Augmentation de l'écart */
             padding: 0 40px;
         }
+        
         .feature-item {
             text-align: center;
         }
@@ -208,6 +210,13 @@
                 width: 70%; /* Reprend de la largeur */
                 margin-bottom: 20px;
             }
+
+            /* --- CORRECTION CSS ICI (Mobile) --- */
+            .feature-grid {
+                grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+                padding: 0 10px;
+            }
+
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -292,7 +301,7 @@
                 </div>
             </div>
 
-            <!-- SECTION POLITIQUE DE CONFIDENTIALITÉ (OBLIGATOIRE POUR GOOGLE) -->
+            <!-- SECTION POLITIQUE DE CONFIDENTIALITÉ (OBLIGATOLE POUR GOOGLE) -->
             <div id="privacy-policy">
                 <h2>Politique de Confidentialité</h2>
                 <p><strong>Dernière mise à jour : 10 Novembre 2025</strong></p>
