@@ -50,17 +50,19 @@
             font-size: 1.8rem;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - MODIFIÉ */
         .hero {
             display: flex;
+            flex-direction: column; /* TOUJOURS l'un au-dessus de l'autre */
+            text-align: center; /* Tout est centré */
             align-items: center;
             justify-content: space-between;
-            padding: 80px 0;
-            gap: 40px; /* Ajout d'un écart */
+            padding: 60px 0; /* Un peu moins de padding */
+            gap: 40px; 
         }
         .hero-content {
             flex: 1;
-            /* Retrait du padding-right, géré par le gap */
+            /* Le padding-right est inutile car centré */
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -75,6 +77,9 @@
             font-size: 1.25rem;
             color: var(--text-light);
             margin-bottom: 40px;
+            max-width: 650px; /* Évite que le texte soit trop large */
+            margin-left: auto;
+            margin-right: auto;
         }
         .cta-button {
             display: inline-block;
@@ -95,11 +100,14 @@
 
         /* STYLES CORRIGÉS POUR LA GRILLE D'AFFICHES (SANS ANGLES) */
         .hero-image-grid {
-            flex: 1.2; /* Donne un peu plus de place aux images */
+            flex: 1.2; 
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Espace entre les deux affiches */
+            gap: 25px; /* Espace entre les deux affiches */
+            width: 100%;
+            max-width: 800px; /* Limite la largeur des 2 affiches */
+            margin-top: 40px; /* Espace par rapport au texte */
         }
         .aso-image {
             width: 48%; /* Chaque image prend presque la moitié */
@@ -126,8 +134,9 @@
         }
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            /* MODIFIÉ : 4 colonnes sur grand écran, s'adapte en dessous */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
             padding: 0 40px;
         }
         .feature-item {
@@ -185,29 +194,12 @@
 
         /* RESPONSIVE (MIS À JOUR) */
         @media (max-width: 900px) { /* Point de bascule large */
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0;
-            }
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 60px;
-            }
             .hero h1 {
                 font-size: 2.5rem;
             }
-            .hero-image-grid {
-                flex-direction: row; /* Côte à côte sur tablette */
-                width: 100%;
-                gap: 15px;
-            }
-            .aso-image {
-                width: 45%; /* Plus petites */
-            }
         }
         
-        @media (max-width: 500px) { /* Vraiment mobile */
+        @media (max-width: 600px) { /* Vraiment mobile */
              .hero-image-grid {
                 flex-direction: column; /* L'une sous l'autre */
                 width: 100%;
@@ -257,22 +249,31 @@
         </section>
 
         <section class="features">
-            <h2>Pourquoi choisir Mes Impôts Zen ?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Fiabilité Maximale</h3>
-                    <p>Un moteur de calcul vérifié et mis à jour avec les dernières lois de finances 2025.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔒</span>
-                    <h3>100% Confidentiel</h3>
-                    <p>Vos données financières sont sensibles. Elles ne quittent jamais votre téléphone.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📈</span>
-                    <h3>Mode Expert</h3>
-                    <p>Gérez les cas complexes (PER, revenus fonciers) et comparez vos scénarios d'optimisation.</p>
+            <div class="container"> <!-- Ajout d'un container pour centrer -->
+                <h2>Pourquoi choisir Mes Impôts Zen ?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Fiabilité Maximale</h3>
+                        <p>Un moteur de calcul vérifié et mis à jour avec les dernières lois de finances 2025.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <h3>100% Confidentiel</h3>
+                        <p>Vos données financières sont sensibles. Elles ne quittent jamais votre téléphone.</p>
+                    </div>
+                    <!-- ANCIEN "MODE EXPERT" SPLITTÉ EN DEUX -->
+                    <div class="feature-item">
+                        <span class="feature-icon">📈</span>
+                        <h3>Mode Expert</h3>
+                        <p>Gérez les cas complexes (PER, revenus fonciers, frais réels...) pour une simulation précise.</p>
+                    </div>
+                    <!-- NOUVELLE 4ÈME FEATURE -->
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <h3>Scénarios & Analyse</h3>
+                        <p>Comparez vos simulations et analysez vos impôts avec nos graphiques clairs.</p>
+                    </div>
                 </div>
             </div>
         </section>
