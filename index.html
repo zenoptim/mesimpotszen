@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Impôts Zen - Simulateur d'Impôt Fiable et Simple</title>
     <meta name="description" content="Calculez votre impôt en 2 minutes. Fiable, simple et 100% zen. Testez vos scénarios (PER, frais réels) avec notre simulateur gratuit.">
-    <!-- Favicon (à remplacer par ton icône plus tard) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘‍♂️</text></svg>">
     
-    <!-- Style CSS Minimaliste (Intégré pour la simplicité) -->
     <style>
         :root {
             --primary-color: #1a3b5d; /* Bleu marine (Header app) */
@@ -24,12 +22,12 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden; /* Empêche le scroll horizontal */
+            overflow-x: hidden;
         }
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px; /* Ajout d'un padding horizontal de base */
+            padding: 0 20px;
         }
         /* HEADER */
         header {
@@ -50,19 +48,18 @@
             font-size: 1.8rem;
         }
 
-        /* HERO SECTION - MODIFIÉ */
+        /* HERO SECTION */
         .hero {
             display: flex;
-            flex-direction: column; /* TOUJOURS l'un au-dessus de l'autre */
-            text-align: center; /* Tout est centré */
+            flex-direction: column;
+            text-align: center;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 0; /* Un peu moins de padding */
+            padding: 60px 0;
             gap: 40px; 
         }
         .hero-content {
             flex: 1;
-            /* Le padding-right est inutile car centré */
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -77,7 +74,7 @@
             font-size: 1.25rem;
             color: var(--text-light);
             margin-bottom: 40px;
-            max-width: 650px; /* Évite que le texte soit trop large */
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -98,23 +95,23 @@
             background-color: #0b5ed7;
         }
 
-        /* STYLES CORRIGÉS POUR LA GRILLE D'AFFICHES (SANS ANGLES) */
+        /* GRILLE D'AFFICHES */
         .hero-image-grid {
             flex: 1.2; 
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px; /* Espace entre les deux affiches */
+            gap: 25px;
             width: 100%;
-            max-width: 800px; /* Limite la largeur des 2 affiches */
-            margin-top: 40px; /* Espace par rapport au texte */
+            max-width: 800px;
+            margin-top: 40px;
         }
         .aso-image {
-            width: 48%; /* Chaque image prend presque la moitié */
+            width: 48%;
             height: auto;
             border-radius: 12px;
-            aspect-ratio: 1080 / 1920; /* Force le bon ratio */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre simple et propre */
+            aspect-ratio: 1080 / 1920;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         /* FEATURES SECTION */
@@ -131,16 +128,12 @@
             font-size: 2.5rem;
             margin-bottom: 60px;
         }
-        
-        /* --- CORRECTION CSS ICI --- */
         .feature-grid {
             display: grid;
-            /* Force 2 colonnes sur desktop/tablette large */
             grid-template-columns: 1fr 1fr;
-            gap: 40px; /* Augmentation de l'écart */
+            gap: 40px;
             padding: 0 40px;
         }
-        
         .feature-item {
             text-align: center;
         }
@@ -161,14 +154,14 @@
         footer {
             background-color: var(--primary-color);
             color: white;
-            padding: 60px 20px; /* Ajout d'un padding */
+            padding: 60px 20px;
             margin-top: 80px;
         }
         .footer-content {
             display: flex;
             justify-content: space-between;
             margin-bottom: 40px;
-            flex-wrap: wrap; /* Ajout pour mobile */
+            flex-wrap: wrap;
         }
         .footer-links a {
             color: rgba(255,255,255,0.7);
@@ -183,50 +176,52 @@
             padding: 30px;
             border-radius: 10px;
             font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-            display: none; /* Caché par défaut */
+            color: rgba(255,255,255,0.9);
+            display: none;
         }
         #privacy-policy.visible {
-            display: block; /* Affiché si on clique */
+            display: block;
         }
         #privacy-policy h2 {
             color: white;
             margin-top: 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
         }
-
-        /* RESPONSIVE (MIS À JOUR) */
-        @media (max-width: 900px) { /* Point de bascule large */
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+        #privacy-policy h3 {
+            color: #9ec5fe; /* Bleu clair pour les sous-titres */
+            margin-top: 25px;
         }
         
-        @media (max-width: 600px) { /* Vraiment mobile */
-             .hero-image-grid {
-                flex-direction: column; /* L'une sous l'autre */
-                width: 100%;
-            }
-            .aso-image {
-                width: 70%; /* Reprend de la largeur */
-                margin-bottom: 20px;
-            }
+        /* TABLEAU POUR LA PRIVACY POLICY */
+        .privacy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.85rem;
+        }
+        .privacy-table th, .privacy-table td {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px;
+            text-align: left;
+        }
+        .privacy-table th {
+            background-color: rgba(255,255,255,0.1);
+            font-weight: bold;
+        }
 
-            /* --- CORRECTION CSS ICI (Mobile) --- */
-            .feature-grid {
-                grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
-                padding: 0 10px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-links {
-                margin-top: 20px;
-            }
-            .footer-links a {
-                margin: 0 10px;
-            }
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+        @media (max-width: 600px) {
+             .hero-image-grid { flex-direction: column; width: 100%; }
+            .aso-image { width: 70%; margin-bottom: 20px; }
+            .feature-grid { grid-template-columns: 1fr; padding: 0 10px; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { margin-top: 20px; }
+            .footer-links a { margin: 0 10px; }
+            .privacy-table { display: block; overflow-x: auto; } /* Scroll horizontal pour le tableau sur mobile */
         }
     </style>
 </head>
@@ -235,22 +230,18 @@
     <div class="container">
         <header>
             <div class="logo">
-                <!-- Remplacer par ton icône plus tard -->
                 <span class="logo-icon">🧘‍♂️</span> Mes Impôts Zen
             </div>
-            <!-- <nav> (Pas besoin de navigation pour l'instant) -->
         </header>
 
         <section class="hero">
             <div class="hero-content">
                 <h1>Vos impôts, enfin <span class="highlight">Zen</span>.</h1>
                 <p>Le premier simulateur d'impôt fiable, simple et 100% confidentiel. Calculez votre impôt et optimisez vos scénarios (PER, frais réels) en 2 minutes.</p>
-                <!-- Lien vers le Play Store (à mettre à jour quand tu auras l'URL) -->
                 <a href="#" class="cta-button">
                     Télécharger sur Android (Bientôt)
                 </a>
             </div>
-            <!-- SECTION HTML INCHANGÉE -->
             <div class="hero-image-grid">
                 <img src="affiche-accueil.png" alt="Affiche 1 - Mes Impôts Zen" class="aso-image">
                 <img src="affiche-comparaison.png" alt="Affiche 2 - Comparaison PER" class="aso-image">
@@ -258,7 +249,7 @@
         </section>
 
         <section class="features">
-            <div class="container"> <!-- Ajout d'un container pour centrer -->
+            <div class="container">
                 <h2>Pourquoi choisir Mes Impôts Zen ?</h2>
                 <div class="feature-grid">
                     <div class="feature-item">
@@ -271,13 +262,11 @@
                         <h3>100% Confidentiel</h3>
                         <p>Vos données financières sont sensibles. Elles ne quittent jamais votre téléphone.</p>
                     </div>
-                    <!-- ANCIEN "MODE EXPERT" SPLITTÉ EN DEUX -->
                     <div class="feature-item">
                         <span class="feature-icon">📈</span>
                         <h3>Mode Expert</h3>
                         <p>Gérez les cas complexes (PER, revenus fonciers, frais réels...) pour une simulation précise.</p>
                     </div>
-                    <!-- NOUVELLE 4ÈME FEATURE -->
                     <div class="feature-item">
                         <span class="feature-icon">📊</span>
                         <h3>Scénarios & Analyse</h3>
@@ -301,23 +290,78 @@
                 </div>
             </div>
 
-            <!-- SECTION POLITIQUE DE CONFIDENTIALITÉ (OBLIGATOLE POUR GOOGLE) -->
             <div id="privacy-policy">
-                <h2>Politique de Confidentialité</h2>
-                <p><strong>Dernière mise à jour : 10 Novembre 2025</strong></p>
-                <p>L'application "Mes Impôts Zen" (ci-après "l'Application") est développée par ZenOptim. Nous accordons une importance capitale à la confidentialité de vos données.</p>
+                <h2>Politique de Confidentialité – Mes Impôts Zen</h2>
+                <p><strong>Dernière mise à jour :</strong> 22 Novembre 2024</p>
+                <p>Cette politique de confidentialité s'applique à l'application <strong>Mes Impôts Zen</strong>, développée par <strong>ZenOptim</strong> (Olivier BON).</p>
+                <p>Nous prenons votre vie privée très au sérieux. Notre philosophie est simple : <strong>vos données fiscales vous appartiennent et n'ont rien à faire sur nos serveurs.</strong></p>
+
+                <h3>1. COMMENT SUPPRIMER VOS DONNÉES</h3>
+                <p>L'application <strong>Mes Impôts Zen</strong> fonctionne en mode <strong>100% offline</strong>. Aucune de vos données fiscales (revenus, situation familiale, simulations) n'est envoyée sur nos serveurs.</p>
+                <p>Vous disposez de plusieurs méthodes pour supprimer vos données :</p>
+                <ul>
+                    <li><strong>Option A : Suppression depuis l'application</strong><br>Ouvrez l'application > Allez dans l'onglet "Mes Calculs" > Appuyez sur le bouton "Tout supprimer". Les données sont immédiatement effacées de la mémoire du téléphone.</li>
+                    <li><strong>Option B : Désinstallation complète</strong><br>Désinstallez simplement l'application. Toutes les données locales sont supprimées définitivement. Il n'existe aucune copie ailleurs.</li>
+                    <li><strong>Option C : Demande concernant l'abonnement Premium</strong><br>Pour exercer vos droits concernant les données techniques de l'abonnement, contactez-nous à <em>contact@mesimpotszen.fr</em> avec pour objet "Suppression données abonnement".</li>
+                </ul>
+
+                <h3>2. TYPES DE DONNÉES COLLECTÉES ET CONSERVÉES</h3>
+                <p>Voici un récapitulatif transparent de ce que nous voyons et ne voyons pas :</p>
                 
-                <h3>1. Collecte de Données</h3>
-                <p><strong>Nous ne collectons aucune donnée personnelle.</strong> Toutes les informations financières que vous saisissez dans l'Application (revenus, charges, situation familiale) sont stockées exclusivement en local sur votre appareil. Elles ne sont jamais transmises à nos serveurs ni à des tiers.</p>
+                <table class="privacy-table">
+                    <thead>
+                        <tr>
+                            <th>Type de Donnée</th>
+                            <th>Collectée par ZenOptim ?</th>
+                            <th>Stockage</th>
+                            <th>Durée de conservation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Revenus & Situation fiscale</strong></td>
+                            <td>❌ NON</td>
+                            <td>Local (Téléphone uniquement)</td>
+                            <td>Jusqu'à suppression par l'utilisateur</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nom / Prénom / Adresse</strong></td>
+                            <td>❌ NON</td>
+                            <td>Nulle part</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td>❌ NON</td>
+                            <td>Nulle part</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Historique des Achats</strong></td>
+                            <td>✅ OUI (Technique)</td>
+                            <td>Serveurs RevenueCat (USA)</td>
+                            <td>Durée légale liée à la transaction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Identifiants Appareil</strong></td>
+                            <td>✅ OUI (Anonyme)</td>
+                            <td>Serveurs RevenueCat (USA)</td>
+                            <td>Lié à la durée de l'abonnement</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><em>Précision importante : Les données d'achats et d'identifiants techniques sont collectées uniquement via notre prestataire <strong>RevenueCat</strong> pour permettre le fonctionnement de l'abonnement Premium. Ces données sont pseudonymisées.</em></p>
 
-                <h3>2. Permissions</h3>
-                <p>L'Application ne demande aucune permission sensible (pas d'accès aux contacts, à la localisation, ou aux fichiers en dehors de son propre espace de stockage sécurisé).</p>
+                <h3>3. PARTAGE DES DONNÉES AVEC DES TIERS</h3>
+                <p>Nous ne vendons, n'échangeons et ne transférons <strong>AUCUNE</strong> de vos données personnelles à des tiers à des fins commerciales ou marketing.</p>
+                <p>Les seuls services tiers utilisés sont techniques :</p>
+                <ul>
+                    <li><strong>Google Play Store :</strong> Pour le traitement sécurisé des paiements.</li>
+                    <li><strong>RevenueCat :</strong> Pour la gestion de l'état de votre abonnement (Actif/Expiré).</li>
+                </ul>
 
-                <h3>3. Services Tiers</h3>
-                <p>L'Application utilise <strong>RevenueCat</strong> uniquement pour gérer les abonnements Premium. Ce service peut collecter des données techniques anonymisées liées aux transactions d'achat, conformément aux règles du Google Play Store.</p>
-
-                <h3>4. Contact</h3>
-                <p>Pour toute question concernant cette politique, vous pouvez nous contacter à : contact@mesimpotszen.fr</p>
+                <h3>4. CONTACTEZ-NOUS</h3>
+                <p>Pour toute question relative à cette politique ou pour toute demande RGPD : <br>📧 <strong>contact@mesimpotszen.fr</strong></p>
             </div>
         </div>
     </footer>
